@@ -4,7 +4,7 @@ out/
 
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,vscode,java,intellij+iml,maven,gradle,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,vscode,java,intellij+iml,maven,gradle,git
