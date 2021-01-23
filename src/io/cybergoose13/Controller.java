@@ -7,6 +7,9 @@ public class Controller {
     public void onSelectUsername(MouseEvent mouseEvent) {
     }
 
+    public void onSelectPassword(MouseEvent mouseEvent){
+    }
+
     public void onClickSignIn(MouseEvent mouseEvent) {
     }
 

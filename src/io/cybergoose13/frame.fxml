@@ -30,7 +30,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextArea>
-            <PasswordField focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Password">
+            <PasswordField fx:id="input_password_frame" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onSelectPassword" prefWidth="250.0" promptText="Password">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -42,7 +42,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn_reg_frame" mnemonicParsing="false" onMouseClicked="#onClickRegister" text="Register">
+                  <Button fx:id="btn_reg_frame" focusTraversable="true" mnemonicParsing="false" onMouseClicked="#onClickRegister" text="Register">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
