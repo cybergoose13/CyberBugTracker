@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("frame.fxml"));
-        primaryStage.setTitle("Pawnee Bug Tracker");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Pawnee");
+        primaryStage.setScene(new Scene(root, 405, 605));
         primaryStage.show();
     }
 
