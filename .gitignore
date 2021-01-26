@@ -1,6 +1,7 @@
 # Cybergoose ignored files
 .idea/
 out/
+*.db
 
 # Default ignored files
 /shelf/
