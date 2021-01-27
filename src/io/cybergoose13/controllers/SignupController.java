@@ -1,23 +1,15 @@
 package io.cybergoose13.controllers;
 
-import javafx.fxml.FXMLLoader;
+import io.cybergoose13.handlers.SceneHandler;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class SignupController {
 
-    private Parent root;
-    private Stage stage;
+    private SceneHandler sceneHandler= new SceneHandler();
 
-    public void onClickBack(MouseEvent mouseEvent) throws IOException {
-        root= FXMLLoader.load(getClass().getResource("../frame.fxml"));
-        stage= (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root, 400d, 600d));
-        stage.show();
+    public void onClickBack(MouseEvent mouseEvent) throws Exception{
+        sceneHandler.setScene("../frame.fxml",
+                ((Node)mouseEvent.getSource()).getScene().getWindow());
     }
 }

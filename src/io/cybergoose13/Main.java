@@ -6,13 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.sql.*;
+import static io.cybergoose13.handlers.DatabaseHandler.makeDBConnection;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        makeConnection();
+        makeDBConnection();
         Parent root = FXMLLoader.load(getClass().getResource("frame.fxml"));
         primaryStage.setTitle("Pawnee");
         primaryStage.setScene(new Scene(root, 405, 605));
@@ -21,20 +21,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public void makeConnection(){
-        String dbName= "test.db";
-        String dbPath= "jdbc:sqlite:";
-        String dbClassName= "org.sqlite.JDBC";
-        Connection connection= null;
-        try{
-            Class.forName(dbClassName);
-            connection= DriverManager.getConnection(dbPath + dbName);
-        }catch (Exception e){
-            System.err.println(e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-        }
-        System.out.println("Connection established.");
     }
 }
