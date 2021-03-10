@@ -16,7 +16,8 @@ public class SceneHandler {
     public void setScene(String fxmlFile, Window window) throws Exception{
         root= FXMLLoader.load(getClass().getResource(fxmlFile));
         stage= (Stage) window;
-        stage.setScene(new Scene(root, window.getWidth(), window.getHeight()));
+        System.out.println(window.getWidth() + " : " + window.getHeight() );
+        stage.setScene(new Scene(root, 400, 600));
         stage.show();
     }
 }
