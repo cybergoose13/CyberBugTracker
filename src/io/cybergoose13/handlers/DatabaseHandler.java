@@ -6,9 +6,11 @@ import java.sql.Statement;
 
 public class DatabaseHandler {
 
-    private static String dbName= "test.db";
-    private static String dbPath= "jdbc:sqlite:";
-    private static String dbClassName= "org.sqlite.JDBC";
+    private final static String dbUserTable= "USER_TABLE";
+    private final static String dbProgramTable= "PROGRAM_TABLE";
+    private final static String dbName= "test.db";
+    private final static String dbPath= "jdbc:sqlite:";
+    private final static String dbClassName= "org.sqlite.JDBC";
     private static Connection connection= null;
     private static Statement statement= null;
 
@@ -33,15 +35,25 @@ public class DatabaseHandler {
     }
 
 
+//      https://www.tutorialspoint.com/sqlite/sqlite_java.htm
     public static void createDBTable(){
         try{
             statement= connection.createStatement();
-            String sql = "CREATE TABLE TEST_TABLE" +
-                        "(ID INT PRIMARY KEY    NOT NULL," +
-                        " NAME          TEXT    NOT NULL," +
-                        " AGE           INT     NOT NULL," +
-                        "ADDRESS        CHAR(50), " +
-                        " SALARY        REAL)";
+            String sql = "CREATE TABLE " + dbUserTable +
+                        "(USERID INT PRIMARY KEY    NOT NULL," +
+                        " USERNAME      TEXT    NOT NULL," +
+                        " PASSWORD      CHAR(50) NOT NULL)";
+            String programTable= "CREATE TABLE " + dbProgramTable +
+                                "(ID INT PRIMARY KEY    NOT NULL," +
+                                " NAME          TEXT    NOT NULL," +
+                                " CREATOR       TEXT    NOT NULL," +
+                                " USERID        INT     NOT NULL," +
+                                " FOREIGN KEY(USERID) REFERENCES " + dbUserTable + "(USERID) )";
+
+            statement.executeUpdate(sql);
+            statement.executeUpdate(programTable);
+            statement.close();
+            connection.close();
         }catch(Exception e){
             System.err.println(e.getClass().getName() + ": " + e.getMessage() );
         }
